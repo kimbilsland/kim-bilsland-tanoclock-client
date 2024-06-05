@@ -1,12 +1,12 @@
+import Timer from "../../components/MusicPlayer/Timer/Timer";
 import "./HomePage.scss";
 
 function HomePage() {
+  return (
+    <>
+      <Timer/>
+    </>
+  );
+}
 
-    return (
-      <>
-
-      </>
-    )
-  }
-  
-  export default HomePage
+export default HomePage;
