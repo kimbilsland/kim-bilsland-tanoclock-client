@@ -2,7 +2,7 @@ import "./Timer.scss";
 import { useEffect, useState } from "react";
 
 const Timer = () => {
-    const [seconds, setSeconds] = useState(600); // 10 minutes in seconds
+    const [seconds, setSeconds] = useState(600);
     const [isActive, setIsActive] = useState(false);
 
     useEffect(() => {
@@ -13,9 +13,9 @@ const Timer = () => {
                     if (prevSeconds > 0) {
                         return prevSeconds - 1;
                     } else {
-                        alert('10 minutes have passed!');
-                        setIsActive(false); // Pause timer after alert
-                        return 600; // Reset to 10 minutes
+                        alert('FLIP!');
+                        setIsActive(false); 
+                        return 600; 
                     }
                 });
             }, 1000);
