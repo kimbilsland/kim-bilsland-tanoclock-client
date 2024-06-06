@@ -34,8 +34,33 @@ function UVIndex() {
     getUVCurrentLocation();
   }, []);
 
+  function getUVLevel(uvData) {
+    const UVLevel = uvData.result.uv;
 
-  return <>{uv ? <h1>{uv.result.uv}</h1> : <h1>...loading</h1>}</>;
+    if (UVLevel <= 2) {
+        return "Low";
+      } else if (UVLevel >= 3 && UVLevel <= 5) {
+        return "Moderate";
+      } else if (UVLevel >= 6 && UVLevel <= 7) {
+        return "High";
+      } else if (UVLevel >= 8 && UVLevel<= 10) {
+        return "Very High";
+      } else {
+        return "Extreme";
+      }
+    }
+  return (
+        <>
+          {uv ? (
+            <div>
+              <h1>{uv.result.uv}</h1>
+              <p>{getUVLevel(uv)}</p>
+            </div>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </>
+  );
 }
 
 export default UVIndex;
