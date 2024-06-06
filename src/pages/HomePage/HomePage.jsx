@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import axios from "axios";
 import Timer from "../../components/MusicPlayer/Timer/Timer";
 import MusicPlayer from "../../components/MusicPlayer/MusicPlayer";
+import UVIndex from "../../components/UVIndex/UVIndex";
 
 
 function HomePage() {
@@ -28,6 +29,7 @@ function HomePage() {
 
   return (
     <>
+      <UVIndex/>
       <MusicPlayer accessToken={accessToken}/>
       <Timer/>
     </>
