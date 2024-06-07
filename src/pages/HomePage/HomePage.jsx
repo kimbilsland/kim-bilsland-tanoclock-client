@@ -1,9 +1,10 @@
 import "./HomePage.scss";
 import {useState, useEffect} from 'react';
 import axios from "axios";
-import Timer from "../../components/MusicPlayer/Timer/Timer";
+import Timer from "../../components/Timer/Timer"
 import MusicPlayer from "../../components/MusicPlayer/MusicPlayer";
 import UVIndex from "../../components/UVIndex/UVIndex";
+import ProductList from "../../components/ProductList/ProductList";
 
 
 function HomePage() {
@@ -32,6 +33,8 @@ function HomePage() {
       <UVIndex/>
       <MusicPlayer accessToken={accessToken}/>
       <Timer/>
+      <Timer/>
+      <ProductList/>
     </>
   );
 }

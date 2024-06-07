@@ -1,6 +1,6 @@
 import "./MusicPlayer.scss";
 import { useEffect, useState } from "react";
-import GetSpotifyPlaylists from "./GetSpotifyPlaylists/GetSpotifyPlaylists";
+import GetSpotifyPlaylists from "../GetSpotifyPlaylists/GetSpotifyPlaylists";
 
 const MusicPlayer = ({ accessToken }) => {
   // const [playlists, setPlaylists] = useState([]);

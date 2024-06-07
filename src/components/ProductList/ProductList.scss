@@ -1,0 +1,21 @@
+.products {
+
+  &__scrolling-wrapper-flexbox {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+        display: none;
+      }
+  
+    .card {
+      flex: 0 0 auto;
+    }
+  }
+
+  &__item {
+    border: 1px solid lightgrey;
+  }
+}
