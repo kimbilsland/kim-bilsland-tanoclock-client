@@ -70,7 +70,7 @@ import data from '../../data/fake-uv.json'
         <>
           {uv ? (
             <div>
-              <h1>{uv.result.uv}</h1>
+              <h1>{data.result.uv}</h1>
               <p>{getUVLevel(uv)}</p>
             </div>
           ) : (
