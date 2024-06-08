@@ -9,8 +9,9 @@ function LandingPage() {
   const [tones, setTone] = useState(null);
   const navigate = useNavigate();
 
+  //checks if skintone is saved in local storage and directs to home if stored.
   useEffect(() => {
-    const storedSkinTone = localStorage.getItem('selectedSkinTone');
+    const storedSkinTone = localStorage.getItem("selectedSkinTone");
     if (storedSkinTone) {
       navigate(`/home`);
     } else {
@@ -20,9 +21,7 @@ function LandingPage() {
 
   async function getData() {
     try {
-      const response = await axios.get(
-        'http://localhost:8080/skintones/'
-      );
+      const response = await axios.get("http://localhost:8080/skintones/");
       setTone(response.data);
       console.log(response.data);
     } catch (error) {
@@ -37,8 +36,6 @@ function LandingPage() {
   return (
     <>
       <SkinToneSelector tones={tones} />
-
-
     </>
   );
 }
