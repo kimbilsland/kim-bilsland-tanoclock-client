@@ -1,5 +1,6 @@
 import "./ProductList.scss";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import ProductItem from "../ProductItem/ProductItem"
 
@@ -32,14 +33,14 @@ function ProductList() {
             .filter((product) => product.category === "SPF")
             .map((product) => (
               <li className="product__item" key={product.id}>
-                {/* <Link key={product.id} to={`/${product.id}`}> */}
+                <Link key={product.id} to={`/product/${product.id}`}>
                   <ProductItem
-                    title={product.title}
+                    name={product.name}
                     price={product.price}
                     image={product.image}
-                    rating={product.rating}
+                    rating={parseInt(product.rating)}
                   />
-                {/* </Link> */}
+                </Link>
               </li>
             ))}
         </ul>
@@ -53,14 +54,14 @@ function ProductList() {
             .filter((product) => product.category === "Alternative-tanning")
             .map((product) => (
               <li key={product.id}>
-                {/* <Link key={product.id} to={`/${product.id}`}> */}
+                <Link key={product.id} to={`/product/${product.id}`}>
                   <ProductItem
-                    title={product.title}
+                    name={product.name}
                     price={product.price}
                     image={product.image}
                     rating={product.rating}
                   />
-                {/* </Link> */}
+                </Link>
               </li>
             ))}
         </ul>

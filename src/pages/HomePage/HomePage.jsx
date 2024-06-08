@@ -49,7 +49,6 @@ function HomePage() {
   //   getUVCurrentLocation();
   // }, []);
 
-
   const [accessToken, setAccessToken] = useState('');
 
   useEffect(() => {
