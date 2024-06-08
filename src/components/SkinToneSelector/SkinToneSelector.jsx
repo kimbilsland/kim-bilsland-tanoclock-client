@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import SkinToneIcon from "../SkinToneIcon/SkinToneIcon";
 
@@ -6,16 +6,10 @@ const SkinToneSelector = ({ tones }) => {
   const [selectedSkinTone, setSelectedSkinTone] = useState(
     localStorage.getItem("selectedSkinTone") || null
   );
-
-  useEffect(() => {
-    if (selectedSkinTone) {
-      console.log("Selected tone:", selectedSkinTone); // Check if selected tone is logged correctly
-      localStorage.setItem("selectedSkinTone", selectedSkinTone);
-    }
-  }, [selectedSkinTone]);
-
+  
   const handleSkinToneClick = (skinTone) => {
-    console.log("Clicked tone:", skinTone); // Check if click event is handled correctly
+    console.log("Clicked tone:", skinTone); 
+    localStorage.setItem("selectedSkinTone", skinTone);
     setSelectedSkinTone(skinTone);
   };
 
@@ -25,7 +19,7 @@ const SkinToneSelector = ({ tones }) => {
       <ul>
         {tones.map((tone) => (
           <li key={tone.id}>
-            <Link key={tone.id} to={`/home`} >
+            <Link to={`/home`}>
               <SkinToneIcon
                 skinTone={tone.tone}
                 onClick={handleSkinToneClick}
@@ -40,3 +34,4 @@ const SkinToneSelector = ({ tones }) => {
 };
 
 export default SkinToneSelector;
+

@@ -12,11 +12,13 @@ const Timer = () => {
   const [maxSeconds, setMaxSeconds] = useState(0); //set base
   const [musicPaused, setMusicPaused] = useState(false);
 
+  const savedTone = localStorage.getItem('selectedSkinTone')
+
   useEffect(() => {
     // if (uv) {
     //   const maxRecommendedTime = uv.result.safe_exposure_time.st3 * 60; // for REAL API
       if (data) {
-        const maxRecommendedTime = data.result.safe_exposure_time.st3 * 60;
+        const maxRecommendedTime = data.result.safe_exposure_time[savedTone] * 60;
       console.log(maxRecommendedTime)
       const intervalTime = 12 * 60;
       setSeconds(intervalTime); 
@@ -73,7 +75,11 @@ const Timer = () => {
   const formatTimeHours = (timeInSeconds) => {
     const timeHours = Math.floor(timeInSeconds / 3600);
     const timeMinutes = Math.floor((timeInSeconds % 3600) / 60);
-    return `${timeHours}h ${timeMinutes}m`;
+    if (timeHours > 0) {
+      return `${timeHours}h ${timeMinutes}m`;
+    } else {
+      return `${timeMinutes}m`;
+    }
   };
 
   const handleStartPause = () => {

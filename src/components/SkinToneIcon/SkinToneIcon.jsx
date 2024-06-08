@@ -3,7 +3,7 @@ const SkinToneIcon = ({ skinTone, onClick, icon }) => {
 
   return (
     <div onClick={() => onClick(skinTone)}>
-       <img src={`${port}/${icon}`} alt={skinTone} />
+      <img src={`${port}/${icon}`} alt={skinTone} />
     </div>
   );
 };
