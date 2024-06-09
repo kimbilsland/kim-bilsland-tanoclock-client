@@ -3,44 +3,40 @@
 @use "../partials/_typography" as *;
 
 * {
-    margin: 0rem;
-    padding: 0rem;
-    box-sizing: border-box;
-  }
+  margin: 0rem;
+  padding: 0rem;
+  box-sizing: border-box;
+}
 
+html,
+body {
+  font-family: $text-font-family;
+  color: $text-dark;
+}
 
-  html,
-  body {
-    font-family: $text-font-family;
-    color: $text-color-dark;
-  }
-  
-
+h2 {
+  font-family: "Lato";
+  font-size: 20px;
+  line-height: 19px;
+  font-weight: 400;
+  color: $primary-color;
+}
 h1 {
-    font-family:"Lato";
-    font-size: 32px;
-    line-height: 19px;
-    text-transform: none;
-    font-weight: 400;
-    color: $text-color-light;
-    }
-    h2 {
-    font-family: "Abril Fatface";
-    font-size: 60px;
-    line-height: 99px;
-    text-transform: none;
-    color: $text-color-light;
-    }
+  font-family: "Abril Fatface";
+  font-size: 60px;
+  line-height: 99px;
+  color: $primary-color;
+}
 
-    h3 {
-      font-family: "Lato";
-      font-size: 16px;
-      line-height: 18px;
-      font-weight: 300;
-      text-transform: none;
-      color: $text-color-dark;
-      }
-
+h3 {
+  font-family: "Lato";
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 300;
+  text-transform: none;
+  color: $contrast-color;
+  text-transform: uppercase;
+}
 
 * {
   margin: 0rem;

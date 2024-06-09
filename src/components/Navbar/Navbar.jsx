@@ -4,7 +4,7 @@ import navIcon from "../../assets/images/icons/menu.svg";
 function Nav() {
   return (
     <div className="navbar">
-      <h1 className="navbar__logo">TanO'Clock</h1>
+      <h2 className="navbar__logo">TanO'Clock</h2>
       <img src={navIcon} alt="navigation" />
     </div>
   );

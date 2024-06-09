@@ -1,6 +1,4 @@
 import "./Footer.scss";
-import uvIcon from "../../assets/images/icons/uv.svg";
-import umbrellaImage from "../../assets/images/pictures/umbrella.jpg";
 
 function Footer() {
   return (
@@ -12,7 +10,8 @@ function Footer() {
         </p>
         <br />
         <p className="footer__text footer__text--bold">
-          If you are going to lay out in the sun, it's best to do it responsibly!
+          If you are going to lay out in the sun, it's best to do it
+          responsibly!
         </p>
       </div>
       <div className="footer__background"></div>
