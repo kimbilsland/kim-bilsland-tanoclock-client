@@ -2,3 +2,18 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/global" as *;
+
+.home {
+  @include flexcolumn;
+
+  &__timers {
+    @include flexcolumn;
+    background-color: $background-accent-alt;
+    padding: 3rem 2rem;
+    row-gap: 1rem;
+  }
+
+  &__header {
+    font-size: 45px;
+  }
+}

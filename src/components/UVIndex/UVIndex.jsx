@@ -65,13 +65,13 @@ import data from '../../data/fake-uv.json'
       }
     }
 
-    
   return (
         <>
           {uv ? (
-            <div>
-              <h1>{data.result.uv}</h1>
-              <p>{getUVLevel(uv)}</p>
+            <div className="uv">
+              <h2 className="uv__heading">UV INDEX</h2>
+              <h1 className="uv__index">{data.result.uv}</h1>
+              <h2 className="uv__level">{getUVLevel(uv)}</h2>
             </div>
           ) : (
             <p>Loading...</p>

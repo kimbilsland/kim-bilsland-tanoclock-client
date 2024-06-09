@@ -26,10 +26,33 @@
 
   
 @mixin divider {
-    border-bottom: solid $secondary-light 1px;
+    border-bottom: solid $background-accent-alt 1px;
 }
 
-@mixin logo {
-    width: 8.0369rem;
-    height: 1.75rem;
-}
+@mixin button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem 2rem;
+    width: 100%;
+    height: 1.5rem;
+    border: 0rem;
+    background-color: $contrast-color;
+    cursor: pointer;
+    font-family: $text-font-family;
+    font-weight: 400;
+    color: $background-accent;
+    text-align: center;
+    font-size: 13px;
+    line-height: 15px;
+
+    &:hover {
+      background-color: $background-accent-alt;
+    }
+    @include tablet {
+      width: auto;
+      height: 2.375rem;
+    }
+  }
+

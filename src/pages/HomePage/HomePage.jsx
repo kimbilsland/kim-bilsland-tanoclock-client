@@ -1,22 +1,19 @@
 import "./HomePage.scss";
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from "react";
 import axios from "axios";
-import data from "../../data/fake-uv.json"
+import data from "../../data/fake-uv.json";
 import Timer from "../../components/Timer/Timer";
 import SunscreenTimer from "../../components/SunscreenTimer/SunscreenTimer";
 import MusicPlayer from "../../components/MusicPlayer/MusicPlayer";
 import UVIndex from "../../components/UVIndex/UVIndex";
 import ProductList from "../../components/ProductList/ProductList";
 
-
 function HomePage() {
+  const [uv, setUV] = useState(null);
 
-    const [uv, setUV] = useState(null);
-  
-    useEffect(() => {
-      setUV(data);
-    }, []);
-
+  useEffect(() => {
+    setUV(data);
+  }, []);
 
   // const [uv, setUV] = useState(null);
   // const [error, setError] = useState(null);
@@ -49,24 +46,22 @@ function HomePage() {
   //   getUVCurrentLocation();
   // }, []);
 
-  const [accessToken, setAccessToken] = useState('');
+  const [accessToken, setAccessToken] = useState("");
 
   useEffect(() => {
     const getAccessToken = async () => {
       try {
-        const resp = await axios.get('/api/spotify/token');
+        const resp = await axios.get("/api/spotify/token");
         // const data = await resp.json();
         // setAccessToken(data.access_token);
-        setAccessToken(resp.data)
+        setAccessToken(resp.data);
       } catch (error) {
-        console.error('Error fetching access token', error);
+        console.error("Error fetching access token", error);
       }
     };
 
     getAccessToken();
   }, []);
-
-
 
   return (
     // <>
@@ -77,13 +72,18 @@ function HomePage() {
     //   <ProductList/>
     // </>
 
-<>
-<UVIndex />
-<MusicPlayer accessToken={accessToken}/>
-<Timer/>
-<SunscreenTimer/>
-<ProductList/>
-</>
+    <main>
+      <div className="home">
+        <UVIndex />
+        <div className="home__timers">
+          {/* <h1 className="home__header"> The Timers </h1> */}
+          <Timer />
+          <SunscreenTimer />
+        </div>
+        <MusicPlayer accessToken={accessToken} />
+        <ProductList />
+      </div>
+    </main>
   );
 }
 
