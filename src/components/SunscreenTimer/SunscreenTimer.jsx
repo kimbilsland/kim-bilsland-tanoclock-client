@@ -39,7 +39,7 @@ const SunscreenTimer = () => {
   };
 
   const handleReset = () => {
-    setSeconds(600);
+    setSeconds(7200);
     setIsActive(false);
   };
 
