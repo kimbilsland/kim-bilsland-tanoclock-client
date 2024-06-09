@@ -1,0 +1,16 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.navbar {
+    background-color: $background-accent;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+
+    &__logo {
+        color: $primary-color;
+        font-size: 20px;
+    }
+}

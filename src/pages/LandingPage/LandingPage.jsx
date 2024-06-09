@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SkinToneSelector from "../../components/SkinToneSelector/SkinToneSelector";
 
+
 function LandingPage() {
   const { id } = useParams();
   const [tones, setTone] = useState(null);
@@ -34,9 +35,10 @@ function LandingPage() {
   }
 
   return (
-    <>
+    <div className="landing">
+      <h2 className="landing__header" >Welcome! </h2>
       <SkinToneSelector tones={tones} />
-    </>
+    </div>
   );
 }
 

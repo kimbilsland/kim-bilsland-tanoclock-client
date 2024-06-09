@@ -1,4 +1,21 @@
-// @use "../../styles/partials/mixins" as *;
-// @use "../../styles/partials/variables" as *;
-// @use "../../styles/partials/typography" as *;
-// @use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.landing {
+  background: $background-accent;
+  padding: 0rem 2rem 2rem 2rem;
+  width: 100%;
+
+  &__logo {
+    color: $primary-color;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  &__header {
+    color: $primary-color;
+    padding-bottom: 1.5rem;
+  }
+}

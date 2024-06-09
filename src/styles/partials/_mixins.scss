@@ -1,0 +1,35 @@
+
+@use '../partials/_variables' as *;
+@use '../partials/_typography' as *;
+
+//breakpoint mixins
+
+
+@mixin tablet {
+    @media (min-width: ($tablet-breakpoint)) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: ($desktop-breakpoint)) {
+        @content;
+    }
+}
+
+//misc mixins
+
+@mixin flexcolumn {
+    display: flex;
+    flex-direction: column;
+}
+
+  
+@mixin divider {
+    border-bottom: solid $secondary-light 1px;
+}
+
+@mixin logo {
+    width: 8.0369rem;
+    height: 1.75rem;
+}

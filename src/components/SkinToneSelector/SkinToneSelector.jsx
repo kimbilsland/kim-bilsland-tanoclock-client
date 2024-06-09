@@ -1,3 +1,4 @@
+import "./SkinToneSelector.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SkinToneIcon from "../SkinToneIcon/SkinToneIcon";
@@ -16,12 +17,12 @@ const SkinToneSelector = ({ tones }) => {
   };
 
   return (
-    <div>
-      <h3>Select Skin Tone</h3>
-      <ul>
+    <div className="selector">
+      <h3 className="selector__header" >Select Skin Tone</h3>
+      <ul className="selector__list">
         {tones.map((tone) => (
-          <li key={tone.id}>
-            <Link to={`/home`}>
+          <li className="selector__item"key={tone.id}>
+            <Link className="selector__link" to={`/home`}>
               <SkinToneIcon
                 skinTone={tone.tone}
                 onClick={handleSkinToneClick}
