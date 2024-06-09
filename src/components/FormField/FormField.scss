@@ -1,0 +1,45 @@
+@use "../../styles/partials/_global" as *;
+@use "../../styles/partials/_mixins" as *;
+@use "../../styles/partials/_variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.formfield {
+  @include flexcolumn;
+  row-gap: 0.25rem;
+  padding-bottom: 0.5rem;
+
+  &__textfield {
+    width: 100%;
+    height: 36px;
+    background-color: $primary-color-light;
+    border: 0.0625rem $contrast-color solid;
+    border-radius: 1.25rem;
+    font-size: 0.8125rem;
+    line-height: 20rem;
+    padding: 0rem 1rem;
+    resize: none;
+
+    &:focus {
+      outline: none;
+      border: 1px solid $highlight-color;
+    }
+
+    &--error {
+      border: 1px solid $primary-color;
+    }
+
+    @include tablet {
+      height: 2.375rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      align-items: top;
+    }
+  }
+
+  &--large .formfield__textfield {
+    height: 4rem;
+    // @include flexcolumn;
+    resize: none;
+    vertical-align: top;
+  }
+}

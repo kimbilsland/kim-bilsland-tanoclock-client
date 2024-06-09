@@ -2,7 +2,7 @@ import "./ProductList.scss";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import ProductItem from "../ProductItem/ProductItem"
+import ProductItem from "../ProductItem/ProductItem";
 
 function ProductList() {
   const API_URL = import.meta.env.VITE_LOCALHOST;
@@ -23,17 +23,17 @@ function ProductList() {
   }, []);
 
   return (
-    <div>
-      <h1> Product Recommendations </h1>
+    <div className="products">
+      <h1 className="products__header"> Product Reccos </h1>
 
-      <div className="products">
-        <h2> Sunscreen </h2>
+      <div className="products__container">
+        <h3 className="products__subtitle"> Sunscreen </h3>
         <ul className="products__scrolling-wrapper-flexbox">
           {products
             .filter((product) => product.category === "SPF")
             .map((product) => (
-              <li className="product__item" key={product.id}>
-                <Link key={product.id} to={`/product/${product.id}`}>
+              <li  key={product.id}>
+                <Link className="products__item"key={product.id} to={`/product/${product.id}`}>
                   <ProductItem
                     name={product.name}
                     price={product.price}
@@ -45,10 +45,9 @@ function ProductList() {
             ))}
         </ul>
       </div>
-      
 
       <div>
-        <h2> Alternative-Tan Options </h2>
+        <h3 className="products__subtitle"> Alternative-Tan Options </h3>
         <ul className="products__scrolling-wrapper-flexbox">
           {products
             .filter((product) => product.category === "Alternative-tanning")
@@ -66,7 +65,7 @@ function ProductList() {
             ))}
         </ul>
       </div>
-    </div>   
+    </div>
   );
 }
 

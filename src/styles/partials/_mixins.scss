@@ -26,7 +26,7 @@
 
   
 @mixin divider {
-    border-bottom: solid $background-accent-alt 1px;
+    border-top: solid $background-accent-alt 1px;
 }
 
 @mixin button {

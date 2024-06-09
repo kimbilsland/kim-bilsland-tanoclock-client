@@ -3,13 +3,13 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/global" as *;
 
-.timer {
+.sunscreen-timer {
   background-color: #ffffff;
   padding: 1.5rem;
   border-radius: 25px;
   border: $contrast-color 1px solid;
   @include flexcolumn;
-  row-gap: 1rem;
+  row-gap: 0.5rem;
   width: 100%;
 
   &__clock {

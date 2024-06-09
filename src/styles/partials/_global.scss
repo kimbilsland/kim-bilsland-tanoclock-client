@@ -40,6 +40,15 @@ h3 {
   text-transform: uppercase;
 }
 
+h4 {
+  font-family: "Lato";
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+  text-transform: none;
+  color: $contrast-color;
+}
+
 * {
   margin: 0rem;
   padding: 0rem;

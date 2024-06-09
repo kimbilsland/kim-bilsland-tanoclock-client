@@ -1,0 +1,71 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.details {
+  background-color: $background-accent;
+  padding: 2rem;
+  @include divider;
+  @include flexcolumn;
+
+  &__product {
+    background-color: $primary-color-light;
+    padding: 1rem;
+    @include flexcolumn;
+    // border-radius: 50px;
+  }
+
+  &__image {
+    padding: 0rem 1rem 1rem 1rem;
+    width: 200px;
+    align-self: center;
+  }
+
+  &__info {
+    @include divider;
+    padding: 1rem;
+    @include flexcolumn;
+    row-gap: 0.5rem;
+    align-items: center;
+  }
+
+  &__price {
+    font-weight: 700;
+    color: $contrast-color;
+  }
+
+  &__button {
+    @include button;
+    color: $contrast-color;
+    background-color: $background-accent-alt;
+    align-self: center;
+  }
+
+  &__form {
+    @include flexcolumn;
+  }
+
+  &__review {
+    height: 3rem;
+  }
+
+  &__subtitle {
+    padding: 1rem 0rem 0.5rem 0rem;
+    @include divider;
+    font-weight: 300;
+  }
+
+  &__form {
+    padding: 0rem 1rem;
+    @include flexcolumn;
+  }
+
+  &__post {
+    border: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $contrast-color;
+    padding: 0.5rem;
+  }
+}

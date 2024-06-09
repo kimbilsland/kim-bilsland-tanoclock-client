@@ -7,11 +7,11 @@ const imagePath=`public/product-images/${image}`
 
   return (
     <>
-    <div>
+    <div className="product">
       <img className="product__image" src={imagePath} alt={name}/>
-      <div>
-        <h3>{name}</h3>
-        <p>${price} CAD</p>
+      <div className="product__info">
+        <p className="product__name">{name}</p>
+        <h4>${price} CAD</h4>
         <Rating name="product-rating" value={parseInt(rating)} size="small" readOnly />
       </div>
       </div>
