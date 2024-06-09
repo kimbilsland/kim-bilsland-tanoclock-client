@@ -80,7 +80,17 @@ function ProductDetails() {
           </div>
           <button className="details__post">Post</button>
         </form>
+        <div className="details__reviews">
+        <h4 className="details__subtitle"> Reviews </h4>
+        <ul>
+    <li>
+      
+    </li>
+
+        </ul>
       </div>
+      </div>
+
     </div>
   );
 }
