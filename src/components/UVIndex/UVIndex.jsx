@@ -86,7 +86,7 @@ function UVIndex() {
           <h2 className="uv__heading">UV INDEX</h2>
           <div className="uv__info">
             <h1 className="uv__index">{roundUV(uv)}</h1>
-            <h2 className={`level ${getUVcolor(getUVLevel(uv))}`}>
+            <h2 className={`uv__level ${getUVcolor(getUVLevel(uv))}`}>
             {getUVLevel(uv)}
           </h2>
           </div>
