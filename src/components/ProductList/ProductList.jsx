@@ -53,7 +53,7 @@ function ProductList() {
             .filter((product) => product.category === "Alternative-tanning")
             .map((product) => (
               <li key={product.id}>
-                <Link key={product.id} to={`/product/${product.id}`}>
+                <Link className="products__item"key={product.id} to={`/product/${product.id}`}>
                   <ProductItem
                     name={product.name}
                     price={product.price}
