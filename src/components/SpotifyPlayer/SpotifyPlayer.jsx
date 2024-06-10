@@ -23,26 +23,20 @@ function SpotifyPlayer() {
 
   useEffect(() => {
     const getSummerPlaylists = async () => {
-      if (token) {
-        try {
-          const response = await axios.get(
-            "http://localhost:8080/api/spotify/summer",
-            {
-              headers: {
-                Authorization: "Bearer " + token,
-              },
-              withCredentials: true,
+        if (token) {
+            try {
+                const response = await axios.get(
+                    "http://localhost:8080/api/spotify/summer",
+                );
+                setPlaylists(response.data);
+              console.log(response.data);
+            } catch (error) {
+                console.error("Error fetching playlists", error);
+                setError("Error fetching playlists");
+            } finally {
+                setLoading(false);
             }
-          );
-          setPlaylists(response.data.playlists.items);
-          console.log(response.data.playlists.items);
-        } catch (error) {
-          console.error("Error fetching playlists", error);
-          setError("Error fetching playlists");
-        } finally {
-          setLoading(false);
         }
-      }
     };
 
     getSummerPlaylists();

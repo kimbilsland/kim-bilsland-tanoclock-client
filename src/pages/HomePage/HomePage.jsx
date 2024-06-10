@@ -1,5 +1,6 @@
 import "./HomePage.scss";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import data from "../../data/fake-uv.json";
 import Timer from "../../components/Timer/Timer";
@@ -47,6 +48,8 @@ function HomePage() {
   //   getUVCurrentLocation();
   // }, []);
 
+  const storedSkinTone = sessionStorage.getItem("selectedSkinTone");
+
   return (
     // <>
     //   <UVIndex uv={uv}/>
@@ -57,16 +60,20 @@ function HomePage() {
     // </>
 
     <main>
-      <div className="home">
-        <UVIndex />
-        <div className="home__timers">
-          {/* <h1 className="home__header"> The Timers </h1> */}
-          <Timer />
-          <SunscreenTimer />
+      {!storedSkinTone ? (
+        <Link to="/" />
+      ) : (
+        <div className="home">
+          <UVIndex />
+          <div className="home__timers">
+            {/* <h1 className="home__header"> The Timers </h1> */}
+            <Timer />
+            <SunscreenTimer />
+          </div>
+          <SpotifyPlayer />
+          <ProductList />
         </div>
-        <SpotifyPlayer/>
-        <ProductList />
-      </div>
+      )}
     </main>
   );
 }
