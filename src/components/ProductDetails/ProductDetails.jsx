@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import FormField from "../FormField/FormField";
+// import ReviewCounter from "../../components/ReviewCounter/ReviewCounter"
 
 function ProductDetails() {
   const API_URL = import.meta.env.VITE_LOCALHOST;
@@ -37,6 +38,12 @@ function ProductDetails() {
 
   const imagePath = `../public/product-images/${product.image}`;
 
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    event.target.reset();
+  };
+
   const handleRatingChange = (event, newRating) => {
     setRating(newRating);
   };
@@ -47,11 +54,12 @@ function ProductDetails() {
         <img className="details__image" src={imagePath} alt={product.name} />
         <div className="details__info">
           <h3>{product.name}</h3>
-          <p>{product.description}</p>
+          <p className="details__description">{product.description}</p>
           <p className="details__price">${product.price} CAD</p>
           <button className="details__button"> Purchase </button>
         </div>
-        <form className="details__form">
+
+        <form className="details__form" onSubmit={submitHandler}>
           <div className="details__fields">
             <h4 className="details__subtitle">Leave a review</h4>
             <FormField
@@ -71,26 +79,33 @@ function ProductDetails() {
               // value=""
               // onChange={onChange}
             />
-            <div></div>
+          </div>
+          <div className="details__rating">
             <Rating
               name="product-rating"
               value={parseInt(product.rating)}
               onChange={handleRatingChange}
             />
           </div>
+          {/* <ReviewCounter/> */}
           <button className="details__post">Post</button>
         </form>
-        <div className="details__reviews">
-        <h4 className="details__subtitle"> Reviews </h4>
-        <ul>
-    <li>
-      
-    </li>
 
-        </ul>
+        {/* <div className="details__reviews">
+          <h4 className="details__subtitle"> Reviews </h4>
+          <ul className="details__review-list">
+            {reviews.map((review) => (
+              <Review
+                key={review.id}
+                id={review.id}
+                name={review.name}
+                timestamp={review.timestamp}
+                review={review.comment}
+              />
+            ))}
+          </ul>
+        </div> */}
       </div>
-      </div>
-
     </div>
   );
 }

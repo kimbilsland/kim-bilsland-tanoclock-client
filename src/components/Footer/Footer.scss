@@ -8,7 +8,7 @@
   padding: 2rem;
   height: 100%;
   display: flex;
-  align-items: stretch;
+  //align-items: stretch;
 
   &__info {
     @include flexcolumn;
@@ -34,5 +34,9 @@
     background-repeat: no-repeat;
     border-radius: 50px;
     border: 1px $background-accent solid;
+
+    @include tablet {
+      background-position: right bottom;
+    }
   }
 }

@@ -8,12 +8,21 @@
   padding: 2rem;
   @include divider;
   @include flexcolumn;
+  align-items: center;
 
   &__product {
     background-color: $primary-color-light;
     padding: 1rem;
     @include flexcolumn;
     // border-radius: 50px;
+
+    @include tablet {
+      width: 70%;
+    }
+
+    @include desktop {
+      width: 50%;
+    }
   }
 
   &__image {
@@ -27,8 +36,24 @@
     padding: 1rem;
     @include flexcolumn;
     row-gap: 0.5rem;
-    align-items: center;
+
+    @include tablet {
+      align-items: center;
+      text-align: center;
+    }
+
+    }
+  
+&__description {
+  display: flex;
+  align-items: center;
+
+  @include tablet {
+    justify-content: center; 
+    text-align: center;
   }
+
+}
 
   &__price {
     font-weight: 700;
