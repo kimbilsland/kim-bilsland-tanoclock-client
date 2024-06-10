@@ -19,7 +19,6 @@ const Timer = () => {
     //   const maxRecommendedTime = uv.result.safe_exposure_time.st3 * 60; // for REAL API
     if (data) {
       const maxRecommendedTime = data.result.safe_exposure_time[savedTone] * 60;
-      console.log(maxRecommendedTime);
       const intervalTime = 12 * 60;
       setSeconds(intervalTime);
       setMaxSeconds(maxRecommendedTime);
