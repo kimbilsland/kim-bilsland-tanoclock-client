@@ -12,7 +12,7 @@ const Timer = () => {
   const [maxSeconds, setMaxSeconds] = useState(0); //set base
   const [musicPaused, setMusicPaused] = useState(false);
 
-  const savedTone = localStorage.getItem("selectedSkinTone");
+  const savedTone = sessionStorage.getItem("selectedSkinTone");
 
   useEffect(() => {
     // if (uv) {

@@ -47,23 +47,6 @@ function HomePage() {
   //   getUVCurrentLocation();
   // }, []);
 
-  const [accessToken, setAccessToken] = useState("");
-
-  useEffect(() => {
-    const getAccessToken = async () => {
-      try {
-        const resp = await axios.get("/api/spotify/token");
-        // const data = await resp.json();
-        // setAccessToken(data.access_token);
-        setAccessToken(resp.data);
-      } catch (error) {
-        console.error("Error fetching access token", error);
-      }
-    };
-
-    getAccessToken();
-  }, []);
-
   return (
     // <>
     //   <UVIndex uv={uv}/>

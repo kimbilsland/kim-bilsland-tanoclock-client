@@ -6,13 +6,13 @@ import SkinToneIcon from "../SkinToneIcon/SkinToneIcon";
 const SkinToneSelector = ({ tones }) => {
   //initializes selected skin tone and sets it for future sessions
   const [selectedSkinTone, setSelectedSkinTone] = useState(
-    localStorage.getItem("selectedSkinTone") || null
+    sessionStorage.getItem("selectedSkinTone") || null
   );
 
   //stores the skintone in local storage on click of icon
   const handleSkinToneClick = (skinTone) => {
     console.log("Clicked tone:", skinTone);
-    localStorage.setItem("selectedSkinTone", skinTone);
+    sessionStorage.setItem("selectedSkinTone", skinTone);
     setSelectedSkinTone(skinTone);
   };
 
