@@ -25,7 +25,21 @@ const MusicPlayer = ({ accessToken }) => {
       <div
         dangerouslySetInnerHTML={{
           __html: `
-        <iframe src="https://open.spotify.com/embed/track/7xGfFoTpQ2E7fRF5lN10tr" width="50%" height="100%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          <link rel="alternate" type="application/json+oembed" href="https://open.spotify.com/oembed?url=https%3A%2F%2Fopen.spotify.com%2Fshow%2F5eXZwvvxt3K2dxha3BSaAe" />
+
+
+          <section id="profile">
+          <h2>Logged in as <span id="displayName"></span></h2>
+          <span id="avatar"></span>
+          <ul>
+              <li>User ID: <span id="id"></span></li>
+              <li>Email: <span id="email"></span></li>
+              <li>Spotify URI: <a id="uri" href="#"></a></li>
+              <li>Link: <a id="url" href="#"></a></li>
+              <li>Profile Image: <span id="imgUrl"></span></li>
+          </ul>
+          </section>
+
       `,
         }}
       ></div>

@@ -4,9 +4,10 @@ import axios from "axios";
 import data from "../../data/fake-uv.json";
 import Timer from "../../components/Timer/Timer";
 import SunscreenTimer from "../../components/SunscreenTimer/SunscreenTimer";
-import MusicPlayer from "../../components/MusicPlayer/MusicPlayer";
+// import MusicPlayer from "../../components/MusicPlayer/MusicPlayer";
 import UVIndex from "../../components/UVIndex/UVIndex";
 import ProductList from "../../components/ProductList/ProductList";
+import SpotifyPlayer from "../../components/SpotifyPlayer/SpotifyPlayer";
 
 function HomePage() {
   const [uv, setUV] = useState(null);
@@ -80,7 +81,7 @@ function HomePage() {
           <Timer />
           <SunscreenTimer />
         </div>
-        <MusicPlayer accessToken={accessToken} />
+        <SpotifyPlayer/>
         <ProductList />
       </div>
     </main>
