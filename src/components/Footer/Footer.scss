@@ -9,11 +9,8 @@
   display: flex;
   align-items: stretch;
   margin-top: auto;
-
   width: 100%;
   z-index: 1;
-  min-height: 10rem;
-
 
   &__info {
     @include flexcolumn;
@@ -39,5 +36,9 @@
     background-repeat: no-repeat;
     border-radius: 50px;
     border: 1px $background-accent solid;
+
+    @include tablet {
+      background-position: right bottom;
+    }
   }
 }

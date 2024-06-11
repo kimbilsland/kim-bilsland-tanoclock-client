@@ -1,53 +1,35 @@
 import "./MusicPlayer.scss";
-import { useEffect, useState } from "react";
-import GetSpotifyPlaylists from "../GetSpotifyPlaylists/GetSpotifyPlaylists";
 
-const MusicPlayer = ({ accessToken }) => {
-  // const [playlists, setPlaylists] = useState([]);
-
-  // useEffect(() => {
-  //   const getPlaylists = async () => {
-  //     try {
-  //       const playlistsData = await GetSpotifyPlaylists(accessToken);
-  //       setPlaylists(playlistsData);
-  //     } catch (error) {
-  //       console.error("Error fetching playlists", error);
-  //     }
-  //   };
-
-  //   if (accessToken) {
-  //     getPlaylists();
-  //   }
-  // }, [accessToken]);
-
+const MusicPlayer = () => {
   return (
-    <div>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `
-          <link rel="alternate" type="application/json+oembed" href="https://open.spotify.com/oembed?url=https%3A%2F%2Fopen.spotify.com%2Fshow%2F5eXZwvvxt3K2dxha3BSaAe" />
-
-
-          <section id="profile">
-          <h2>Logged in as <span id="displayName"></span></h2>
-          <span id="avatar"></span>
-          <ul>
-              <li>User ID: <span id="id"></span></li>
-              <li>Email: <span id="email"></span></li>
-              <li>Spotify URI: <a id="uri" href="#"></a></li>
-              <li>Link: <a id="url" href="#"></a></li>
-              <li>Profile Image: <span id="imgUrl"></span></li>
-          </ul>
-          </section>
-
-      `,
-        }}
-      ></div>
-    </div>
+    <iframe className="iframe"
+      src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4gWghK0svuI?utm_source=generator"
+      frameBorder="0"
+      allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+    ></iframe>
   );
 };
 
 export default MusicPlayer;
+
+// const [playlists, setPlaylists] = useState([]);
+
+// useEffect(() => {
+//   const getPlaylists = async () => {
+//     try {
+//       const playlistsData = await GetSpotifyPlaylists(accessToken);
+//       setPlaylists(playlistsData);
+//     } catch (error) {
+//       console.error("Error fetching playlists", error);
+//     }
+//   };
+
+//   if (accessToken) {
+//     getPlaylists();
+//   }
+// }, [accessToken]);
 
 // const [categories, setCategories] = useState([]);
 // const API_URL = import.meta.env.VITE_BASE_URL;
@@ -96,8 +78,7 @@ export default MusicPlayer;
 
 // export default MusicPlayer
 
-{
-  /* <h1>Summer Playlists</h1>
+/* <h1>Summer Playlists</h1>
       <ul>
         {playlists.map((playlist) => (
           <li key={playlist.id}>
@@ -122,6 +103,3 @@ export default MusicPlayer;
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy"
       ></iframe> */
-}
-
-

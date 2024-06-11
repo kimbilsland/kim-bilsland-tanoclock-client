@@ -112,21 +112,21 @@ const Timer = () => {
       </p>
       <h1 className="timer__time">{formatTimeHours(remainingTime)}</h1>
       <div>
-      <h3 className="timer__header">FlipTimer</h3>
-      <div className="timer__clock">
-        <h1 className="timer__time">{formatTime(seconds)}</h1>
-        <div className="timer__buttons">
-          <button className="timer__button" onClick={handleStartPause}>
-            {isActive ? "Pause" : "Start"}
-          </button>
-          <button className="timer__button" onClick={handleReset}>Reset</button>
+        <h3 className="timer__header">FlipTimer</h3>
+        <p> Set yourself up for an even tan and rotate every 12 minutes. </p>
+        <div className="timer__clock">
+          <h1 className="timer__time">{formatTime(seconds)}</h1>
+          <div className="timer__buttons">
+            <button className="timer__button" onClick={handleStartPause}>
+              {isActive ? "Pause" : "Start"}
+            </button>
+            <button className="timer__button" onClick={handleReset}>
+              Reset
+            </button>
+          </div>
         </div>
-      </div >
+      </div>
     </div>
-
-
-</div>
-    
   );
 };
 

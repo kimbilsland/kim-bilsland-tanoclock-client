@@ -8,6 +8,8 @@
   padding: 2rem;
   width: 100%;
   border-radius: 3.125rem;
+@include flexcolumn;
+flex: 1;
 
   @include tablet {
     padding: 3.5rem;
@@ -24,6 +26,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    flex: 1;
   }
 
   &__item {

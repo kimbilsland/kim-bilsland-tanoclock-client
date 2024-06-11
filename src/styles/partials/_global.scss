@@ -6,6 +6,7 @@
   margin: 0rem;
   padding: 0rem;
   box-sizing: border-box;
+  // height: 100%;
 }
 
 html,
@@ -52,6 +53,11 @@ h4 {
   font-weight: 700;
   text-transform: none;
   color: $contrast-color;
+}
+
+p {
+  color: $contrast-color;
+  font-weight: 300;
 }
 
 * {

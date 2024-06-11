@@ -6,12 +6,11 @@
 .landing {
   background: $background-accent;
   padding: 0rem 2rem 2rem 2rem;
-  width: 100%;
+  min-height: 100vh;
+  flex: 1;
+  @include flexcolumn;
 
-  @include tablet {
-    padding: 0rem 4rem 4rem 4rem;
-  }
- 
+
   &__header {
     padding-bottom: 1.5rem;
   }
@@ -19,5 +18,8 @@
   &__container {
     flex:1;
     height: 100%;
+    padding: 3rem 0rem;
+    width: 100%;
+@include flexcolumn;
   }
 }

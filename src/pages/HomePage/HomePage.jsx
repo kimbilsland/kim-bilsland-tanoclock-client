@@ -8,7 +8,8 @@ import SunscreenTimer from "../../components/SunscreenTimer/SunscreenTimer";
 // import MusicPlayer from "../../components/MusicPlayer/MusicPlayer";
 import UVIndex from "../../components/UVIndex/UVIndex";
 import ProductList from "../../components/ProductList/ProductList";
-import SpotifyPlayer from "../../components/SpotifyPlayer/SpotifyPlayer";
+import MusicPlayer from "../../components/MusicPlayer/MusicPlayer";
+import sunImage from "../../assets/images/pictures/pool.jpg";
 
 function HomePage() {
   const [uv, setUV] = useState(null);
@@ -65,12 +66,19 @@ function HomePage() {
       ) : (
         <div className="home">
           <UVIndex />
-          <div className="home__timers">
-            {/* <h1 className="home__header"> The Timers </h1> */}
-            <Timer />
-            <SunscreenTimer />
+          <div className="home__container">
+            <div className="home__timers">
+              <Timer />
+              <SunscreenTimer />
+            </div>
+            <div className="home__music">
+              <MusicPlayer />
+              <div className="home__image-box">
+              <img className="home__image" src={sunImage} />
+            </div>
+            </div>
+
           </div>
-          <SpotifyPlayer />
           <ProductList />
         </div>
       )}
