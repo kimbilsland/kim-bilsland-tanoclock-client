@@ -1,0 +1,39 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.selector {
+  background-color: $primary-color-light;
+  padding: 2rem;
+  width: 100%;
+  border-radius: 3.125rem;
+  @include flexcolumn;
+  flex: 1;
+
+  @include tablet {
+    padding: 3.5rem;
+  }
+
+  &__header {
+    padding-bottom: 20px;
+    color: $contrast-color;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
+  }
+
+  &__item {
+    padding: 0.56rem;
+
+    @include tablet {
+      padding: 2rem;
+    }
+  }
+}

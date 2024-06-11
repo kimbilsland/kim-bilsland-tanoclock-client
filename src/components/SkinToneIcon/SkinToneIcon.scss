@@ -1,0 +1,22 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.skintone {
+  border-radius: 50%;
+
+  :hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  &__icon {
+    height: 4rem;
+    border-radius: 50%;
+    cursor: pointer;
+
+    @include tablet {
+      height: 7rem;
+    }
+  }
+}

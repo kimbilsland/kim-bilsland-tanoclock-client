@@ -1,0 +1,37 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.sunscreen-timer {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 25px;
+  border: $contrast-color 1px solid;
+  @include flexcolumn;
+  row-gap: 0.5rem;
+  width: 100%;
+
+  &__clock {
+    @include flexcolumn;
+    align-items: center;
+    row-gap: 0.5rem;
+  }
+
+  &__time {
+    color: $background-accent-alt;
+    font-size: 60px;
+    line-height: 32px;
+    padding: 1rem 0rem;
+  }
+
+  &__buttons {
+    display: flex;
+    column-gap: 1rem;
+    padding: 0.5rem 0rem;
+  }
+
+  &__button {
+    @include button;
+  }
+}

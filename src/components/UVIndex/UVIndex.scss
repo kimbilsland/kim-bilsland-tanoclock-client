@@ -1,0 +1,57 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.uv {
+  @include flexcolumn;
+  background-color: $background-accent;
+  align-items: center;
+  row-gap: 1.5rem;
+  padding: 2rem;
+  border-top: $background-accent-alt 0.005px solid;
+
+  &__heading {
+    font-size: 100;
+  }
+
+  &__info {
+    background-color: #ffffff;
+    width: 100%;
+    text-align: center;
+    border-radius: 50px;
+  }
+
+  &__index {
+    background-color: #ffffff;
+    width: 100%;
+    text-align: center;
+    border-radius: 50px;
+    // padding-bottom: 1rem;
+  }
+
+  &__level {
+    font-weight: 700;
+    padding-bottom: 2rem;
+  }
+
+  &--low {
+    color: #fbc141;
+  }
+
+  &--moderate {
+    color: #cd572d;
+  }
+
+  &--high {
+    color: #ee3823;
+  }
+
+  &--very-high {
+    color: #ff402b;
+  }
+
+  &--extreme {
+    color: #d51500;
+  }
+}

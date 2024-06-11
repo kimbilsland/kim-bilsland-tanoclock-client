@@ -1,0 +1,16 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.error-page {
+    background-color: $background-accent;
+
+    &__header {
+        padding: 2rem;
+    }
+
+    &__text {
+        padding: 2rem;
+    }
+}

@@ -1,0 +1,74 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.home {
+  @include flexcolumn;
+
+  &__container {
+    @include flexcolumn;
+
+    @include tablet {
+      flex-direction: row;
+    }
+
+    @include desktop {
+      width: 100%;
+    }
+  }
+
+  &__timers {
+    @include flexcolumn;
+    background-color: $background-accent-alt;
+    padding: 3rem 2rem;
+    row-gap: 1rem;
+
+    @include tablet {
+      width: 40%;
+    }
+  }
+
+  &__header {
+    font-size: 45px;
+  }
+
+  &__music {
+    padding: 2rem;
+    background-color: $background-accent;
+
+    @include tablet {
+      background-color: $background-accent-alt;
+      padding: 48px 32px 48px 0px;
+      flex: 1;
+    }
+    @include desktop {
+      display: flex;
+    }
+  }
+
+  &__image-box {
+    width: 0%;
+
+    @include desktop {
+      height: 560px;
+      padding: 0rem 2rem 0rem 2rem;
+      width: 20px;
+      flex-grow: 1;
+      @include flexcolumn;
+    }
+  }
+
+  &__image {
+    display: none;
+    @include desktop {
+      display: unset;
+      height: 560px;
+      border-radius: 25px;
+      width: auto;
+      max-height: 100%;
+      object-fit: cover;
+      flex: 1;
+    }
+  }
+}

@@ -1,0 +1,98 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.details {
+  background-color: $background-accent;
+  padding: 2rem;
+  @include divider;
+  @include flexcolumn;
+  align-items: center;
+
+  &__product {
+    background-color: $primary-color-light;
+    padding: 1rem;
+    @include flexcolumn;
+
+    @include tablet {
+      width: 60%;
+    }
+
+    @include desktop {
+      width: 50%;
+    }
+  }
+
+  &__image {
+    padding: 0rem 1rem 1rem 1rem;
+    width: 200px;
+    align-self: center;
+  }
+
+  &__info {
+    @include divider;
+    padding: 1rem;
+    @include flexcolumn;
+    row-gap: 0.5rem;
+
+    @include tablet {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__description {
+    display: flex;
+    align-items: center;
+
+    @include tablet {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  &__price {
+    font-weight: 700;
+    color: $contrast-color;
+    text-align: center;
+  }
+
+  &__button {
+    @include button;
+    color: $contrast-color;
+    background-color: $background-accent-alt;
+    align-self: center;
+  }
+
+  &__form {
+    @include flexcolumn;
+  }
+
+  &__review {
+    height: 3rem;
+  }
+
+  &__subtitle {
+    padding: 1rem 0rem 0.5rem 0rem;
+    @include divider;
+    font-weight: 300;
+  }
+
+  &__form {
+    padding: 0rem 1rem;
+    @include flexcolumn;
+  }
+
+  &__post {
+    border: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $contrast-color;
+    padding: 0.5rem;
+  }
+
+  &__reviews {
+    padding: 0rem 1rem;
+  }
+}
