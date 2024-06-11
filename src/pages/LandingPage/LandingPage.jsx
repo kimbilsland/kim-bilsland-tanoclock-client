@@ -37,7 +37,9 @@ function LandingPage() {
   return (
     <div className="landing">
       <h1 className="landing__header" >Welcome! </h1>
+      <div className="landing__container">
       <SkinToneSelector tones={tones} />
+      </div>
     </div>
   );
 }

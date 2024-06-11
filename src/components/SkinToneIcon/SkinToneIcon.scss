@@ -12,5 +12,9 @@
     height: 4rem;
     border-radius: 50%;
     cursor: pointer;
+
+    @include tablet {
+      height: 7rem;
+    }
   }
 }

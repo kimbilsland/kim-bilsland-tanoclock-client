@@ -9,6 +9,10 @@
   width: 100%;
   border-radius: 3.125rem;
 
+  @include tablet {
+    padding: 3.5rem;
+  }
+
   &__header {
     padding-bottom: 20px;
     color: $contrast-color;
@@ -24,5 +28,9 @@
 
   &__item {
     padding: 0.56rem;
+
+    @include tablet {
+      padding: 2rem;
+    }
   }
 }
