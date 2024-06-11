@@ -10,16 +10,20 @@
   flex: 1;
   @include flexcolumn;
 
-
   &__header {
     padding-bottom: 1.5rem;
   }
 
   &__container {
-    flex:1;
+    flex: 1;
     height: 100%;
     padding: 3rem 0rem;
     width: 100%;
-@include flexcolumn;
+    @include flexcolumn;
   }
+}
+
+.loading {
+  padding: 2rem;
+  background-color: $background-accent;
 }

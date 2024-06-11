@@ -6,7 +6,7 @@ function Footer() {
       <div className="footer__info">
         <p className="footer__text">
           TanO'Clock combines your personalized skin tone with current UV
-          information to recommend safe sun exposure times.
+          information for your location to recommend safe sun exposure times.
         </p>
         <br />
         <p className="footer__text footer__text--bold">

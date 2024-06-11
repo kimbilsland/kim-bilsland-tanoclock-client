@@ -16,7 +16,7 @@
     @include flexcolumn;
 
     @include tablet {
-      width: 70%;
+      width: 60%;
     }
 
     @include desktop {
@@ -55,6 +55,7 @@
   &__price {
     font-weight: 700;
     color: $contrast-color;
+    text-align: center;
   }
 
   &__button {

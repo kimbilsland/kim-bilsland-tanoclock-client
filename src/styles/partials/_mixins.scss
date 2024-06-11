@@ -1,58 +1,54 @@
-
-@use '../partials/_variables' as *;
-@use '../partials/_typography' as *;
+@use "../partials/_variables" as *;
+@use "../partials/_typography" as *;
 
 //breakpoint mixins
 
-
 @mixin tablet {
-    @media (min-width: ($tablet-breakpoint)) {
-        @content;
-    }
+  @media (min-width: ($tablet-breakpoint)) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media (min-width: ($desktop-breakpoint)) {
-        @content;
-    }
+  @media (min-width: ($desktop-breakpoint)) {
+    @content;
+  }
 }
 
 //misc mixins
 
 @mixin flexcolumn {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-  
 @mixin divider {
-    border-top: solid $background-accent-alt 1px;
+  border-top: solid $background-accent-alt 1px;
 }
 
 @mixin button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 1rem 2rem;
-    width: 100%;
-    height: 1.5rem;
-    border: 0rem;
-    background-color: $contrast-color;
-    cursor: pointer;
-    font-family: $text-font-family;
-    font-weight: 400;
-    color: $background-accent;
-    text-align: center;
-    font-size: 13px;
-    line-height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem 2rem;
+  width: 100%;
+  height: 1.5rem;
+  border: 0rem;
+  background-color: $contrast-color;
+  cursor: pointer;
+  font-family: $text-font-family;
+  font-weight: 400;
+  color: $background-accent;
+  text-align: center;
+  font-size: 13px;
+  line-height: 15px;
 
-    &:hover {
-      background-color: $background-accent-alt;
-    }
-    @include tablet {
-      width: auto;
-      height: 2.375rem;
-    }
+  &:hover {
+    background-color: $background-accent-alt;
   }
-
+  @include tablet {
+    width: auto;
+    height: 2.375rem;
+  }
+}

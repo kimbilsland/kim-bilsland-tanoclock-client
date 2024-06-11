@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import './NotFound.scss'
 
 function NotFound() {
   useEffect(() => {
@@ -7,10 +7,9 @@ function NotFound() {
   }, []);
 
   return (
-    <div>
-      <h2>Page Not Found</h2>
-      <p>Sorry, there is nothing to see here.</p>
-      <Navigate to="/" />
+    <div className="error-page">
+      <h1 className="error-page__header">Page Not Found</h1>
+      <p className="error-page__text">Sorry, there is nothing to see here.</p> 
     </div>
   );
 }

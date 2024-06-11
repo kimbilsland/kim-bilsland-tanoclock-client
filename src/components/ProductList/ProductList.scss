@@ -15,7 +15,7 @@
     padding-bottom: 1rem;
   }
   &__subtitle {
-    padding: 1rem 0rem 0rem 0rem;
+    padding: 1rem 0rem;
   }
 
   &__scrolling-wrapper-flexbox {
@@ -23,6 +23,7 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    column-gap: 1rem;
 
     &::-webkit-scrollbar {
       display: none;
@@ -31,11 +32,15 @@
     .card {
       flex: 0 0 auto;
     }
+
+    @include tablet {
+      column-gap: 1.5rem;
+    }
   }
 
   &__item {
     cursor: pointer;
-    margin: 15px;
+    margin: 1rem 0rem;
     width: 200px;
     transition: box-shadow 0.3s ease-in-out;
 

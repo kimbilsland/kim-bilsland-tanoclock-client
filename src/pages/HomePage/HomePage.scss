@@ -60,11 +60,15 @@
   }
 
   &__image {
-    height: 560px;
-    border-radius: 25px;
-    width: auto;
-    max-height: 100%;
-    object-fit: cover;
-    flex: 1;
+    display: none;
+    @include desktop {
+      display: unset;
+      height: 560px;
+      border-radius: 25px;
+      width: auto;
+      max-height: 100%;
+      object-fit: cover;
+      flex: 1;
+    }
   }
 }

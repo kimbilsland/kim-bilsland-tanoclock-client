@@ -58,7 +58,10 @@ const SunscreenTimer = () => {
       <div className="sunscreen-timer__clock">
         <h1 className="sunscreen-timer__time">{formatTimeHours(seconds)}</h1>
         <div className="sunscreen-timer__buttons">
-          <button className="sunscreen-timer__button" onClick={handleStartPause}>
+          <button
+            className="sunscreen-timer__button"
+            onClick={handleStartPause}
+          >
             {isActive ? "Pause" : "Start"}
           </button>
           <button className="sunscreen-timer__button" onClick={handleReset}>

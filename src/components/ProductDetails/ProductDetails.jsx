@@ -1,3 +1,5 @@
+//not fully implemented 
+
 import "./ProductDetails.scss";
 import { Rating } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -6,8 +8,9 @@ import { useParams } from "react-router-dom";
 import FormField from "../FormField/FormField";
 // import ReviewCounter from "../../components/ReviewCounter/ReviewCounter"
 
+const API_URL = import.meta.env.VITE_LOCALHOST;
+
 function ProductDetails() {
-  const API_URL = import.meta.env.VITE_LOCALHOST;
   const { id } = useParams();
   const [product, setProduct] = useState({
     name: "",
@@ -32,7 +35,7 @@ function ProductDetails() {
     async function getProducts() {
       try {
         const resp = await axios.get(
-          `http://localhost:8080/api/products/${id}`
+          `${API_URL}/api/products/${id}`
         );
         setProduct(resp.data);
       } catch (error) {
@@ -113,7 +116,7 @@ function ProductDetails() {
             <Rating
               name="rating"
               value={parseInt(product.rating)}
-              onChange={handleRatingChange}
+              // onChange={handleRatingChange}
             />
           </div>
           {/* <ReviewCounter/> */}

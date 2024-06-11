@@ -2,23 +2,19 @@ import "./Timer.scss";
 import { useEffect, useState } from "react";
 import flipAlert from "../../assets/voiceclips/flip.mp3";
 import maxAlert from "../../assets/voiceclips/sun-exposure-limit.mp3";
-import data from "../../data/fake-uv.json";
 
-const Timer = () => {
-  // const Timer = ({uv}) => {  for REAL API
+const Timer = ({uv}) => {  
   const [isActive, setIsActive] = useState(false);
-  const [seconds, setSeconds] = useState(0); //set base
-  const [remainingTime, setRemainingTime] = useState(0); //set base
-  const [maxSeconds, setMaxSeconds] = useState(0); //set base
+  const [seconds, setSeconds] = useState(0); 
+  const [remainingTime, setRemainingTime] = useState(0); 
+  const [maxSeconds, setMaxSeconds] = useState(0); 
   const [musicPaused, setMusicPaused] = useState(false);
 
   const savedTone = sessionStorage.getItem("selectedSkinTone");
 
   useEffect(() => {
-    // if (uv) {
-    //   const maxRecommendedTime = uv.result.safe_exposure_time.st3 * 60; // for REAL API
-    if (data) {
-      const maxRecommendedTime = data.result.safe_exposure_time[savedTone] * 60;
+    if (uv) {
+      const maxRecommendedTime = uv.result.safe_exposure_time[savedTone] * 60;
       const intervalTime = 12 * 60;
       setSeconds(intervalTime);
       setMaxSeconds(maxRecommendedTime);

@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SkinToneSelector from "../../components/SkinToneSelector/SkinToneSelector";
 
+const API_URL = import.meta.env.VITE_LOCALHOST;
 
 function LandingPage() {
   const { id } = useParams();
@@ -22,7 +23,7 @@ function LandingPage() {
 
   async function getData() {
     try {
-      const response = await axios.get("http://localhost:8080/skintones/");
+      const response = await axios.get(`${API_URL}/skintones/`);
       setTone(response.data);
       console.log(response.data);
     } catch (error) {
@@ -31,7 +32,7 @@ function LandingPage() {
   }
 
   if (tones === null) {
-    return <div>Loading...</div>;
+    return <div className="loading"> Loading...</div>;
   }
 
   return (

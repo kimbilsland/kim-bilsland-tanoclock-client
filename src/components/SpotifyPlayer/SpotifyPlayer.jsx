@@ -1,3 +1,5 @@
+//for future implementation - see MusicPlayer. 
+
 import { useState, useEffect } from "react";
 import "./SpotifyPlayer.scss";
 import Login from "../Login/Login";
@@ -23,20 +25,20 @@ function SpotifyPlayer() {
 
   useEffect(() => {
     const getSummerPlaylists = async () => {
-        if (token) {
-            try {
-                const response = await axios.get(
-                    "http://localhost:8080/api/spotify/summer",
-                );
-                setPlaylists(response.data);
-              console.log(response.data);
-            } catch (error) {
-                console.error("Error fetching playlists", error);
-                setError("Error fetching playlists");
-            } finally {
-                setLoading(false);
-            }
+      if (token) {
+        try {
+          const response = await axios.get(
+            "http://localhost:8080/api/spotify/summer"
+          );
+          setPlaylists(response.data);
+          console.log(response.data);
+        } catch (error) {
+          console.error("Error fetching playlists", error);
+          setError("Error fetching playlists");
+        } finally {
+          setLoading(false);
         }
+      }
     };
 
     getSummerPlaylists();

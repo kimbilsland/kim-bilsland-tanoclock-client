@@ -3,11 +3,14 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/global" as *;
 
-.navbar {
+.error-page {
     background-color: $background-accent;
-    display: flex;
-    justify-content: space-between;
-    padding: 1.5rem 2rem;
-    width: 100vw;
-    align-items: center;
+
+    &__header {
+        padding: 2rem;
+    }
+
+    &__text {
+        padding: 2rem;
+    }
 }

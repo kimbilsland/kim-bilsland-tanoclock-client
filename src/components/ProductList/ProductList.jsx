@@ -32,8 +32,12 @@ function ProductList() {
           {products
             .filter((product) => product.category === "SPF")
             .map((product) => (
-              <li  key={product.id}>
-                <Link className="products__item"key={product.id} to={`/product/${product.id}`}>
+              <li key={product.id}>
+                <Link
+                  className="products__item"
+                  key={product.id}
+                  to={`/product/${product.id}`}
+                >
                   <ProductItem
                     name={product.name}
                     price={product.price}
@@ -45,7 +49,6 @@ function ProductList() {
             ))}
         </ul>
       </div>
-
       <div>
         <h3 className="products__subtitle"> Alternative-Tan Options </h3>
         <ul className="products__scrolling-wrapper-flexbox">
@@ -53,7 +56,11 @@ function ProductList() {
             .filter((product) => product.category === "Alternative-tanning")
             .map((product) => (
               <li key={product.id}>
-                <Link className="products__item"key={product.id} to={`/product/${product.id}`}>
+                <Link
+                  className="products__item"
+                  key={product.id}
+                  to={`/product/${product.id}`}
+                >
                   <ProductItem
                     name={product.name}
                     price={product.price}

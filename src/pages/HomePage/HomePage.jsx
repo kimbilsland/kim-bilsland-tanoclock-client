@@ -2,82 +2,63 @@ import "./HomePage.scss";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import data from "../../data/fake-uv.json";
 import Timer from "../../components/Timer/Timer";
 import SunscreenTimer from "../../components/SunscreenTimer/SunscreenTimer";
-// import MusicPlayer from "../../components/MusicPlayer/MusicPlayer";
+import MusicPlayer from "../../components/MusicPlayer/MusicPlayer";
 import UVIndex from "../../components/UVIndex/UVIndex";
 import ProductList from "../../components/ProductList/ProductList";
-import MusicPlayer from "../../components/MusicPlayer/MusicPlayer";
 import sunImage from "../../assets/images/pictures/pool.jpg";
+
+const API_URL = import.meta.env.VITE_LOCALHOST;
 
 function HomePage() {
   const [uv, setUV] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setUV(data);
+    const getUVCurrentLocation = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(async (position) => {
+          const lat = position.coords.latitude;
+          const long = position.coords.longitude;
+
+          try {
+            const response = await axios.get(
+              `${API_URL}api/uvindex?lat=${lat}&long=${long}`
+            );
+            setUV(response.data);
+          } catch (error) {
+            setError("Error fetching UV data", error);
+          }
+        });
+      } else {
+        setError("Geolocation is not supported by this browser.", error);
+      }
+    };
+
+    getUVCurrentLocation();
   }, []);
-
-  // const [uv, setUV] = useState(null);
-  // const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   const getUVCurrentLocation = () => {
-  //     if (navigator.geolocation) {
-  //       navigator.geolocation.getCurrentPosition(
-  //         async (position) => {
-  //           const lat = position.coords.latitude;
-  //           const long = position.coords.longitude;
-
-  //           try {
-  //             const response = await axios.get(
-  //               `http://localhost:8080/api/uvindex?lat=${lat}&long=${long}`
-  //             );
-  //             setUV(response.data);
-  //             console.log(response.data);
-  //           } catch (error) {
-  //             console.log("Error fetching UV data", error);
-  //             setError("Error fetching UV data", error);
-  //           }
-  //         },
-  //       );
-  //     } else {
-  //       setError("Geolocation is not supported by this browser.",error);
-  //     }
-  //   };
-
-  //   getUVCurrentLocation();
-  // }, []);
 
   const storedSkinTone = sessionStorage.getItem("selectedSkinTone");
 
   return (
-    // <>
-    //   <UVIndex uv={uv}/>
-    //   <MusicPlayer accessToken={accessToken}/>
-    //   <Timer uv={uv}/>
-    //   <SunscreenTimer/>
-    //   <ProductList/>
-    // </>
-
     <main>
       {!storedSkinTone ? (
         <Link to="/" />
       ) : (
         <div className="home">
-          <UVIndex />
+          <UVIndex uv={uv} />
           <div className="home__container">
             <div className="home__timers">
-              <Timer />
+              <Timer uv={uv} />
               <SunscreenTimer />
             </div>
             <div className="home__music">
               <MusicPlayer />
               <div className="home__image-box">
-              <img className="home__image" src={sunImage} />
+                <img className="home__image" src={sunImage} />
+              </div>
             </div>
-            </div>
-
           </div>
           <ProductList />
         </div>
