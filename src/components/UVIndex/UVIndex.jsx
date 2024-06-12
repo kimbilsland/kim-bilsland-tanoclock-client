@@ -85,7 +85,7 @@ const [error, setError] = useState(null);
           </div>
         </div>
       ) : (
-        <p>Loading...</p>
+        <p className="loading">Loading...</p>
       )}
     </>
   );
