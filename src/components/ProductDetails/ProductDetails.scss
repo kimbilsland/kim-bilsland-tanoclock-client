@@ -76,7 +76,6 @@
 
   &__subtitle {
     padding: 1rem 0rem 0.5rem 0rem;
-    @include divider;
     font-weight: 300;
   }
 
@@ -91,9 +90,17 @@
     font-weight: 700;
     color: $contrast-color;
     padding: 0.5rem;
+    cursor: pointer;
   }
 
   &__reviews {
     padding: 0rem 1rem;
+  }
+
+  &__reviews-block {
+    display: flex;
+justify-content: space-between;
+align-items: center;
+@include divider;
   }
 }

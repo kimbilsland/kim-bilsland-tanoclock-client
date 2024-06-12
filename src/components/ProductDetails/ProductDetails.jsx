@@ -6,7 +6,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import FormField from "../FormField/FormField";
 import Review from "../Review/Review";
-import ReviewCounter from "../../components/ReviewCounter/ReviewCounter"
+import ReviewCounter from "../../components/ReviewCounter/ReviewCounter";
 
 const API_URL = import.meta.env.VITE_LOCALHOST;
 
@@ -30,6 +30,7 @@ function ProductDetails() {
     content: "",
     // rating: "",
   });
+  const [review, setReviews] = useState([]);
 
   useEffect(() => {
     async function getProducts() {
@@ -60,6 +61,7 @@ function ProductDetails() {
     setFormData({
       name: "",
       content: "",
+      // rating: {}"
     });
     setErrors({});
   };
@@ -78,10 +80,10 @@ function ProductDetails() {
     resetForm();
   };
 
-  const [review, setReviews] = useState([]);
+
 
   useEffect(() => {
-    async function fetchReviews() {
+    async function getReviews() {
       try {
         const resp = await axios.get(`${API_URL}/api/products/${id}/reviews`);
         setReviews(resp.data);
@@ -90,7 +92,7 @@ function ProductDetails() {
       }
     }
 
-    fetchReviews();
+    getReviews();
   }, []);
 
   return (
@@ -132,14 +134,16 @@ function ProductDetails() {
               // onChange={handleRatingChange}
             />
           </div>
-          <ReviewCounter reviews={review}/>
           <button type="submit" name="submit" className="details__post">
             Post
           </button>
         </form>
 
         <div className="details__reviews">
+          <div className="details__reviews-block">
           <h4 className="details__subtitle"> Reviews </h4>
+          <ReviewCounter reviews={review}/>
+          </div>
           <ul className="details__review-list">
             {review &&
               review.map((review) => (
