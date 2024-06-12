@@ -1,6 +1,6 @@
 import "./Review.scss";
 
-function Review({ name, review }) {
+function Review({ name, review, created_at }) {
   return (
     <li className="review__item">
       <div className="review__info">

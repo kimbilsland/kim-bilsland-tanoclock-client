@@ -19,7 +19,7 @@ function ProductDetails() {
     rating: 0,
     image: "",
   });
-  const [rating, setRating] = useState({});
+  const [rating, setRating] = useState({}); //rating isn't finished ()
   const [formData, setFormData] = useState({
     name: "",
     content: "",
@@ -31,6 +31,7 @@ function ProductDetails() {
     rating: "",
   });
   const [review, setReviews] = useState([]);
+  
 
   useEffect(() => {
     async function getProducts() {
@@ -72,6 +73,8 @@ function ProductDetails() {
     try {
       await axios.post(`${API_URL}/api/products/${id}/reviews`, formData);
       console.log(formData);
+      const resp = await axios.get(`${API_URL}/api/products/${id}/reviews`);
+      setReviews(resp.data);
 
       resetForm();
     } catch (error) {
@@ -95,6 +98,8 @@ function ProductDetails() {
 
     getReviews();
   }, []);
+
+
 
   return (
     <div className="details">
@@ -147,12 +152,12 @@ function ProductDetails() {
           </div>
           <ul className="details__review-list">
             {review &&
-              review.map((review) => (
+              review
+                  .map((review) => (
                 <Review
                   key={review.id}
                   id={review.id}
                   name={review.name}
-                  timestamp={review.created_at}
                   review={review.content}
                 />
               ))}
