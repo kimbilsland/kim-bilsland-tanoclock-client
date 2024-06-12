@@ -123,6 +123,21 @@ function ProductDetails() {
           </button>
         </form>
 
+        
+        <div className="details__reviews">
+          <h4 className="details__subtitle"> Reviews </h4>
+          <ul className="details__review-list">
+          <li className="review__item">
+      <div className="review__info">
+        <div className="review__details">
+          <h4 className="review__name">Emma Adams</h4>
+        </div>
+        <p className="review__message">I wear this everyday!</p>
+      </div>
+    </li>
+          </ul>
+        </div>
+
         {/* <div className="details__reviews">
           <h4 className="details__subtitle"> Reviews </h4>
           <ul className="details__review-list">
