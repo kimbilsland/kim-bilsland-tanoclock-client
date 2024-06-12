@@ -1,5 +1,3 @@
-//not fully implemented 
-
 import "./ProductDetails.scss";
 import { Rating } from "@mui/material";
 import { useEffect, useState } from "react";

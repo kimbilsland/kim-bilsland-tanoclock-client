@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 const API_URL = import.meta.env.VITE_LOCALHOST;
 
 function UVIndex() {
-const [uv, setUV] = useState(null);
-const [error, setError] = useState(null);
+  const [uv, setUV] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const getUVCurrentLocation = () => {
@@ -20,6 +20,7 @@ const [error, setError] = useState(null);
               const response = await axios.get(
                 `${API_URL}/api/uvindex?lat=${lat}&long=${long}`
               );
+              console.log(response.data);
               setUV(response.data);
             } catch (error) {
               console.log("Error fetching UV data", error);
@@ -28,7 +29,7 @@ const [error, setError] = useState(null);
           },
         );
       } else {
-        setError("Geolocation is not supported by this browser.",error);
+        setError("Geolocation is not supported by this browser.", error);
       }
     };
 
@@ -36,19 +37,21 @@ const [error, setError] = useState(null);
   }, []);
 
   function roundUV(uvData) {
-    return Math.round(uvData.result.uv);
+    const roundedUV = Math.round(uvData.result.uv);
+    console.log("Rounded UV:", roundedUV);
+    return roundedUV;
   }
 
-  function getUVLevel(uvData) {
-    const UVLevel = uvData.result.uv;
+  function getUVLevel(roundedUV) {
+    console.log("Rounded UV Level:", roundedUV);
 
-    if (UVLevel <= 2) {
+    if (roundedUV <= 2) {
       return "Low";
-    } else if (UVLevel >= 3 && UVLevel <= 5) {
+    } else if (roundedUV >= 3 && roundedUV <= 5) {
       return "Moderate";
-    } else if (UVLevel >= 6 && UVLevel <= 7) {
+    } else if (roundedUV >= 6 && roundedUV <= 7) {
       return "High";
-    } else if (UVLevel >= 8 && UVLevel <= 10) {
+    } else if (roundedUV >= 8 && roundedUV <= 10) {
       return "Very High";
     } else {
       return "Extreme";
@@ -79,9 +82,9 @@ const [error, setError] = useState(null);
           <h2 className="uv__heading">UV INDEX</h2>
           <div className="uv__info">
             <h1 className="uv__index">{roundUV(uv)}</h1>
-            <h2 className={`uv__level ${getUVcolor(getUVLevel(uv))}`}>
-            {getUVLevel(uv)}
-          </h2>
+            <h2 className={`uv__level ${getUVcolor(getUVLevel(roundUV(uv)))}`}>
+              {getUVLevel(roundUV(uv))}
+            </h2>
           </div>
         </div>
       ) : (
@@ -89,7 +92,6 @@ const [error, setError] = useState(null);
       )}
     </>
   );
-  
 }
 
 export default UVIndex;
