@@ -33,14 +33,12 @@ const Timer = ({ uv }) => {
           const newRemainingTime = remainingTime - 1;
 
           if (newSeconds === 0) {
-            alert("FLIP!");
             flipSound();
             pauseMusic();
             return intervalTime;
           }
 
           if (newRemainingTime <= 0) {
-            alert("Max sun exposure is up!");
             maxSunSound();
             pauseMusic();
             setIsActive(false);

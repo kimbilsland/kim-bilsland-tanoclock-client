@@ -20,10 +20,8 @@ function UVIndex() {
               const response = await axios.get(
                 `${API_URL}/api/uvindex?lat=${lat}&long=${long}`
               );
-              console.log(response.data);
               setUV(response.data);
             } catch (error) {
-              console.log("Error fetching UV data", error);
               setError("Error fetching UV data", error);
             }
           },
