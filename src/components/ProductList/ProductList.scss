@@ -41,11 +41,11 @@
   &__item {
     cursor: pointer;
     margin: 1rem 0rem;
-    width: 200px;
+    width: 12.5rem;
     transition: box-shadow 0.3s ease-in-out;
 
     &:hover {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
     }
   }
 }

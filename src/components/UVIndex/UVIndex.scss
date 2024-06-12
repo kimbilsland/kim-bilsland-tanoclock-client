@@ -9,7 +9,7 @@
   align-items: center;
   row-gap: 1.5rem;
   padding: 2rem;
-  border-top: $background-accent-alt 0.005px solid;
+  border-top: $background-accent-alt 1px solid;
 
   &__heading {
     font-size: 100;
@@ -19,15 +19,14 @@
     background-color: #ffffff;
     width: 100%;
     text-align: center;
-    border-radius: 50px;
+    border-radius: 3.125rem;
   }
 
   &__index {
     background-color: #ffffff;
     width: 100%;
     text-align: center;
-    border-radius: 50px;
-    // padding-bottom: 1rem;
+    border-radius: 3.125rem;
   }
 
   &__level {
