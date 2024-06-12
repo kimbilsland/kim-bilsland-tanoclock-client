@@ -1,38 +1,6 @@
 import "./UVIndex.scss";
-import axios from "axios";
-import { useState, useEffect } from "react";
 
-const API_URL = import.meta.env.VITE_LOCALHOST;
-
-function UVIndex() {
-  const [uv, setUV] = useState(null);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const getUVCurrentLocation = () => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          async (position) => {
-            const lat = position.coords.latitude;
-            const long = position.coords.longitude;
-
-            try {
-              const response = await axios.get(
-                `${API_URL}/api/uvindex?lat=${lat}&long=${long}`
-              );
-              setUV(response.data);
-            } catch (error) {
-              setError("Error fetching UV data", error);
-            }
-          },
-        );
-      } else {
-        setError("Geolocation is not supported by this browser.", error);
-      }
-    };
-
-    getUVCurrentLocation();
-  }, []);
+const UVIndex = ({ uv }) => {
 
   function roundUV(uvData) {
     const roundedUV = Math.round(uvData.result.uv);
