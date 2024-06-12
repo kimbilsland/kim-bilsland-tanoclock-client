@@ -3,15 +3,6 @@ A simple timer application for managing sun exposure using UV rays for people la
 
 To be used in tandem with https://github.com/kimbilsland/kim-bilsland-tanoclock-server
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Features](#features)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Contributing](#contributing)
-6. [License](#license)
-7. [Contact](#contact)
-
 ## Introduction
 If you are going to lay out in the sun, it is best to do it responsibly! TanO'Clock is a web application designed for sun lovers to mindfully enhance their outdoor tanning experience using sun safety. 
 
@@ -124,15 +115,29 @@ https://www.openuv.io/dashboard
 
 | Color             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Example Color | ![#cd572d](https://via.placeholder.com/10/0a192f?text=+) #cd572d |
-| Example Color | ![#ffffff](https://via.placeholder.com/10/f8f8f8?text=+) #ffffff |
-| Example Color | ![#f8ecd8](https://via.placeholder.com/10/00b48a?text=+) #f8ecd8 |
-| Example Color | ![#024da1](https://via.placeholder.com/10/00b48a?text=+) #024da1|
-| Example Color | ![#ff7f50](https://via.placeholder.com/10/00b48a?text=+) #ff7f501|
+| Example Color | ![#cd572d](https://via.placeholder.com/10/cd572d?text=+) #cd572d |
+| Example Color | ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) #ffffff |
+| Example Color | ![#f8ecd8](https://via.placeholder.com/10/f8ecd8?text=+) #f8ecd8 |
+| Example Color | ![#024da1](https://via.placeholder.com/10/024da1?text=+) #024da1|
+| Example Color | ![#ff7f50](https://via.placeholder.com/10/ff7f50?text=+) #ff7f50|
+
+## Font Reference 
+
+- "Abril Fatface", serif
+- "Lato", sans-serif
+
 
 ## Documentation
 
 [Documentation](https://www.openuv.io/dashboard)
+
+## Future Additions
+
+- Functional store / product links (affiliate marketing)
+- Spotify API functionality for player within the app
+- Add additional information on UV in desktop view
+- Include educational articles on sunsafety, skincare, videos, tiktoks etc..
+- Scientific backing
 
 ## Contributing
 

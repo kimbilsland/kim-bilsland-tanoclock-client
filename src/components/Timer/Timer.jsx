@@ -3,24 +3,25 @@ import { useEffect, useState } from "react";
 import flipAlert from "../../assets/voiceclips/flip.mp3";
 import maxAlert from "../../assets/voiceclips/sun-exposure-limit.mp3";
 
-const Timer = ({uv}) => {  
+const Timer = ({ uv }) => {
   const [isActive, setIsActive] = useState(false);
-  const [seconds, setSeconds] = useState(0); 
-  const [remainingTime, setRemainingTime] = useState(0); 
-  const [maxSeconds, setMaxSeconds] = useState(0); 
+  const [seconds, setSeconds] = useState(0);
+  const [remainingTime, setRemainingTime] = useState(0);
+  const [maxSeconds, setMaxSeconds] = useState(0);
   const [musicPaused, setMusicPaused] = useState(false);
 
   const savedTone = sessionStorage.getItem("selectedSkinTone");
 
+  const intervalTime = 12 * 60; // 12 minutes in seconds
+
   useEffect(() => {
-    if (uv) {
+    if (uv && savedTone) {
       const maxRecommendedTime = uv.result.safe_exposure_time[savedTone] * 60;
-      const intervalTime = 12 * 60;
       setSeconds(intervalTime);
       setMaxSeconds(maxRecommendedTime);
       setRemainingTime(maxRecommendedTime);
     }
-  }, []);
+  }, [uv, savedTone]);
 
   useEffect(() => {
     let timer;
@@ -29,18 +30,15 @@ const Timer = ({uv}) => {
       timer = setTimeout(() => {
         setSeconds((prevSeconds) => {
           const newSeconds = prevSeconds - 1;
-          const newRemainingTime = remainingTime - 1; //if there is time then the timer will -1second. remaining time is set as max recommended time.
+          const newRemainingTime = remainingTime - 1;
 
           if (newSeconds === 0) {
-            alert("FLIP!");
             flipSound();
             pauseMusic();
-            setSeconds(intervalTime); //once the timer is at 0 it will cause the flip alert
+            return intervalTime;
           }
 
           if (newRemainingTime <= 0) {
-            //once the remaining time is less than 0 alert that max daily time is up
-            alert("Max sun exposure is up!");
             maxSunSound();
             pauseMusic();
             setIsActive(false);
@@ -48,17 +46,15 @@ const Timer = ({uv}) => {
           }
 
           setRemainingTime(newRemainingTime);
-          return newSeconds; // update and return new remaining time
+          return newSeconds;
         });
       }, 1000);
     } else if (!isActive && seconds !== 0) {
       clearTimeout(timer);
     }
 
-    return () => clearTimeout(timer); //clears out the timer so it restarts
+    return () => clearTimeout(timer); // Clear timer on component unmount or isActive change
   }, [isActive, seconds, remainingTime]);
-
-  const intervalTime = 12 * 60;
 
   const formatTime = (timeInSeconds) => {
     const minutes = Math.floor(timeInSeconds / 60);
@@ -84,6 +80,7 @@ const Timer = ({uv}) => {
 
   const handleReset = () => {
     setIsActive(false);
+    setSeconds(intervalTime);
     setRemainingTime(maxSeconds);
   };
 
