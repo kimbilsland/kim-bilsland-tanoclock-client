@@ -2,3 +2,20 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/global" as *;
+
+.review {
+    &__item{ 
+        @include flexcolumn;
+        row-gap: 0.5rem;
+        padding-top: 1rem;
+    }
+
+
+    &__name {
+        padding-bottom: 0.5rem;
+
+    &__message {
+        padding-bottom: 0.5rem;
+    }
+}
+}

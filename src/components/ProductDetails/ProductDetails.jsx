@@ -1,4 +1,5 @@
 import "./ProductDetails.scss";
+import "../Review/Review.scss";
 import { Rating } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -32,9 +33,7 @@ function ProductDetails() {
   useEffect(() => {
     async function getProducts() {
       try {
-        const resp = await axios.get(
-          `${API_URL}/api/products/${id}`
-        );
+        const resp = await axios.get(`${API_URL}/api/products/${id}`);
         setProduct(resp.data);
       } catch (error) {
         console.error("Error fetching products: ", error);
@@ -69,7 +68,7 @@ function ProductDetails() {
 
     try {
       await axios.post(`${API_URL}/api/products/${id}/reviews`, formData);
-      console.log(formData)
+      console.log(formData);
       resetForm();
     } catch (error) {
       alert("Error uploading: " + error.message);
@@ -123,18 +122,33 @@ function ProductDetails() {
           </button>
         </form>
 
-        
         <div className="details__reviews">
           <h4 className="details__subtitle"> Reviews </h4>
           <ul className="details__review-list">
-          <li className="review__item">
-      <div className="review__info">
-        <div className="review__details">
-          <h4 className="review__name">Emma Adams</h4>
-        </div>
-        <p className="review__message">I wear this everyday!</p>
-      </div>
-    </li>
+            <li className="review__item">
+              <div className="review__info">
+                <div className="review__details">
+                  <h4 className="review__name">Emma Adams</h4>
+                </div>
+                <p className="review__message">I wear this everyday!</p>
+              </div>
+              <Rating
+              name="rating"
+              value={parseInt(product.rating)}
+            />
+            </li>
+            <li className="review__item">
+              <div className="review__info">
+                <div className="review__details">
+                  <h4 className="review__name">Brooke Sabiston</h4>
+                </div>
+                <p className="review__message">Provides great protection</p>
+              </div>
+              <Rating
+              name="rating"
+              value="5"
+            />
+            </li>
           </ul>
         </div>
 
