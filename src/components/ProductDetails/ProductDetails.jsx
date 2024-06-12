@@ -19,7 +19,7 @@ function ProductDetails() {
     rating: 0,
     image: "",
   });
-  // const [rating, setRating] = useState({});
+  // const [rating, setRating] = useState({}); //rating not added
   const [formData, setFormData] = useState({
     name: "",
     content: "",
@@ -53,9 +53,9 @@ function ProductDetails() {
     setErrors({ ...errors, [name]: "" });
   };
 
-  // const handleRatingChange = (event, newRating) => {
-  //   setFormData({ ...formData, rating: newRating });
-  // };
+  const handleRatingChange = (event, newRating) => {
+    setFormData({ ...formData, rating: newRating });
+  };
 
   const resetForm = () => {
     setFormData({
@@ -131,7 +131,7 @@ function ProductDetails() {
             <Rating
               name="rating"
               value={parseInt(product.rating)}
-              // onChange={handleRatingChange}
+              onChange={handleRatingChange}
             />
           </div>
           <button type="submit" name="submit" className="details__post">
