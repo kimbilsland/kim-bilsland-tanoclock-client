@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import FormField from "../FormField/FormField";
+import Review from "../Review/Review";
 // import ReviewCounter from "../../components/ReviewCounter/ReviewCounter"
 
 const API_URL = import.meta.env.VITE_LOCALHOST;
@@ -77,6 +78,24 @@ function ProductDetails() {
     resetForm();
   };
 
+
+    const [review, setReviews] = useState([]);
+  
+    useEffect(() => {
+      async function fetchReviews() {
+        try {
+  
+          const resp = await axios.get(`${API_URL}/api/products/${id}/reviews`);
+          setReviews(resp.data);
+  
+        } catch (error) {
+          console.error("Error fetching inventory: ", error);
+        }
+      }
+  
+      fetchReviews();
+    }, []);
+
   return (
     <div className="details">
       <div className="details__product">
@@ -96,7 +115,7 @@ function ProductDetails() {
               type="text"
               name="name"
               placeholder="Add your name"
-              value=""
+              value={formData.name}
               onChange={handleInputChange}
             />
             <FormField
@@ -105,7 +124,7 @@ function ProductDetails() {
               type="text"
               name="content"
               placeholder="Write your review here..."
-              value=""
+              value={formData.content}
               onChange={handleInputChange}
             />
           </div>
@@ -122,7 +141,7 @@ function ProductDetails() {
           </button>
         </form>
 
-        <div className="details__reviews">
+        {/* <div className="details__reviews">
           <h4 className="details__subtitle"> Reviews </h4>
           <ul className="details__review-list">
             <li className="review__item">
@@ -149,23 +168,24 @@ function ProductDetails() {
               value="5"
             />
             </li>
-          </ul>
-        </div>
+          </ul> */}
+        {/* </div> */}
 
-        {/* <div className="details__reviews">
+        <div className="details__reviews">
           <h4 className="details__subtitle"> Reviews </h4>
           <ul className="details__review-list">
-            {reviews.map((review) => (
+            {review &&
+            review.map((review) => (
               <Review
                 key={review.id}
                 id={review.id}
                 name={review.name}
-                timestamp={review.timestamp}
-                review={review.comment}
+                timestamp={review.created_at}
+                review={review.content}
               />
             ))}
           </ul>
-        </div> */}
+        </div>
       </div>
     </div>
   );
