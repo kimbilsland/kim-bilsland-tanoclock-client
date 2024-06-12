@@ -19,16 +19,16 @@ function ProductDetails() {
     rating: 0,
     image: "",
   });
-  // const [rating, setRating] = useState({}); //rating not added
+  const [rating, setRating] = useState({});
   const [formData, setFormData] = useState({
     name: "",
     content: "",
-    // rating: 0,
+    rating: 0,
   });
   const [errors, setErrors] = useState({
     name: "",
     content: "",
-    // rating: "",
+    rating: "",
   });
   const [review, setReviews] = useState([]);
 
@@ -61,7 +61,7 @@ function ProductDetails() {
     setFormData({
       name: "",
       content: "",
-      // rating: {}"
+      rating: ""
     });
     setErrors({});
   };
@@ -72,6 +72,7 @@ function ProductDetails() {
     try {
       await axios.post(`${API_URL}/api/products/${id}/reviews`, formData);
       console.log(formData);
+
       resetForm();
     } catch (error) {
       alert("Error uploading: " + error.message);
