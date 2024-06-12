@@ -6,7 +6,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import FormField from "../FormField/FormField";
 import Review from "../Review/Review";
-// import ReviewCounter from "../../components/ReviewCounter/ReviewCounter"
+import ReviewCounter from "../../components/ReviewCounter/ReviewCounter"
 
 const API_URL = import.meta.env.VITE_LOCALHOST;
 
@@ -78,23 +78,20 @@ function ProductDetails() {
     resetForm();
   };
 
+  const [review, setReviews] = useState([]);
 
-    const [review, setReviews] = useState([]);
-  
-    useEffect(() => {
-      async function fetchReviews() {
-        try {
-  
-          const resp = await axios.get(`${API_URL}/api/products/${id}/reviews`);
-          setReviews(resp.data);
-  
-        } catch (error) {
-          console.error("Error fetching inventory: ", error);
-        }
+  useEffect(() => {
+    async function fetchReviews() {
+      try {
+        const resp = await axios.get(`${API_URL}/api/products/${id}/reviews`);
+        setReviews(resp.data);
+      } catch (error) {
+        console.error("Error fetching inventory: ", error);
       }
-  
-      fetchReviews();
-    }, []);
+    }
+
+    fetchReviews();
+  }, []);
 
   return (
     <div className="details">
@@ -135,55 +132,25 @@ function ProductDetails() {
               // onChange={handleRatingChange}
             />
           </div>
-          {/* <ReviewCounter/> */}
+          <ReviewCounter reviews={review}/>
           <button type="submit" name="submit" className="details__post">
             Post
           </button>
         </form>
 
-        {/* <div className="details__reviews">
-          <h4 className="details__subtitle"> Reviews </h4>
-          <ul className="details__review-list">
-            <li className="review__item">
-              <div className="review__info">
-                <div className="review__details">
-                  <h4 className="review__name">Emma Adams</h4>
-                </div>
-                <p className="review__message">I wear this everyday!</p>
-              </div>
-              <Rating
-              name="rating"
-              value={parseInt(product.rating)}
-            />
-            </li>
-            <li className="review__item">
-              <div className="review__info">
-                <div className="review__details">
-                  <h4 className="review__name">Brooke Sabiston</h4>
-                </div>
-                <p className="review__message">Provides great protection</p>
-              </div>
-              <Rating
-              name="rating"
-              value="5"
-            />
-            </li>
-          </ul> */}
-        {/* </div> */}
-
         <div className="details__reviews">
           <h4 className="details__subtitle"> Reviews </h4>
           <ul className="details__review-list">
             {review &&
-            review.map((review) => (
-              <Review
-                key={review.id}
-                id={review.id}
-                name={review.name}
-                timestamp={review.created_at}
-                review={review.content}
-              />
-            ))}
+              review.map((review) => (
+                <Review
+                  key={review.id}
+                  id={review.id}
+                  name={review.name}
+                  timestamp={review.created_at}
+                  review={review.content}
+                />
+              ))}
           </ul>
         </div>
       </div>
