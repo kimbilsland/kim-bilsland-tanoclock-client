@@ -13,7 +13,7 @@ function LandingPage() {
 
   //checks if skintone is saved in local storage and directs to home if stored.
   useEffect(() => {
-    const storedSkinTone = localStorage.getItem("selectedSkinTone");
+    const storedSkinTone = sessionStorage.getItem("selectedSkinTone");
     if (storedSkinTone) {
       navigate(`/home`);
     } else {
@@ -25,7 +25,6 @@ function LandingPage() {
     try {
       const response = await axios.get(`${API_URL}/skintones/`);
       setTone(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }

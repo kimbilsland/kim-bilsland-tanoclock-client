@@ -124,7 +124,7 @@ function ProductDetails() {
               onChange={handleInputChange}
             />
             <FormField
-              className="formfield--large"
+              className="formfield__textfield--large"
               htmlFor="review"
               type="text"
               name="content"
