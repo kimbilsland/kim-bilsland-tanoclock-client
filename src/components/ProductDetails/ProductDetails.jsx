@@ -31,7 +31,6 @@ function ProductDetails() {
     rating: "",
   });
   const [review, setReviews] = useState([]);
-  
 
   useEffect(() => {
     async function getProducts() {
@@ -62,7 +61,7 @@ function ProductDetails() {
     setFormData({
       name: "",
       content: "",
-      rating: ""
+      rating: "",
     });
     setErrors({});
   };
@@ -84,8 +83,6 @@ function ProductDetails() {
     resetForm();
   };
 
-
-
   useEffect(() => {
     async function getReviews() {
       try {
@@ -98,8 +95,6 @@ function ProductDetails() {
 
     getReviews();
   }, []);
-
-
 
   return (
     <div className="details">
@@ -147,13 +142,12 @@ function ProductDetails() {
 
         <div className="details__reviews">
           <div className="details__reviews-block">
-          <h4 className="details__subtitle"> Reviews </h4>
-          <ReviewCounter reviews={review}/>
+            <h4 className="details__subtitle"> Reviews </h4>
+            <ReviewCounter reviews={review} />
           </div>
           <ul className="details__review-list">
             {review &&
-              review
-                  .map((review) => (
+              review.map((review) => (
                 <Review
                   key={review.id}
                   id={review.id}
