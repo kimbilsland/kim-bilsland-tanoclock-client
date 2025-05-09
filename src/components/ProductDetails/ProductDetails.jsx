@@ -8,7 +8,7 @@ import FormField from "../FormField/FormField";
 import Review from "../Review/Review";
 import ReviewCounter from "../../components/ReviewCounter/ReviewCounter";
 
-const API_URL = import.meta.env.VITE_LOCALHOST;
+const API_URL = import.meta.env.VITE_API_URL;
 
 function ProductDetails() {
   const { id } = useParams();

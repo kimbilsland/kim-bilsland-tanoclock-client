@@ -9,7 +9,7 @@ import UVIndex from "../../components/UVIndex/UVIndex";
 import ProductList from "../../components/ProductList/ProductList";
 import sunImage from "../../assets/images/pictures/pool.jpg";
 
-const API_URL = import.meta.env.VITE_LOCALHOST;
+const API_URL = import.meta.env.VITE_API_URL;
 
 function HomePage() {
   const [uv, setUV] = useState(null);

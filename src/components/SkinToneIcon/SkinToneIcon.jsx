@@ -1,7 +1,7 @@
 import "./SkinToneIcon.scss";
 
 const SkinToneIcon = ({ skinTone, onClick, icon }) => {
-  const port = import.meta.env.VITE_LOCALHOST;
+  const port = import.meta.env.VITE_API_URL;
 
   return (
     <div className="skintone" onClick={() => onClick(skinTone)}>

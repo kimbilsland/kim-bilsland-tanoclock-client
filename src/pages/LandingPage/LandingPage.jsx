@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SkinToneSelector from "../../components/SkinToneSelector/SkinToneSelector";
 
-const API_URL = import.meta.env.VITE_LOCALHOST;
+const API_URL = import.meta.env.VITE_API_URL;
 
 function LandingPage() {
   const { id } = useParams();

@@ -5,7 +5,7 @@ import axios from "axios";
 import ProductItem from "../ProductItem/ProductItem";
 
 function ProductList() {
-  const API_URL = import.meta.env.VITE_LOCALHOST;
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [products, setProducts] = useState([]);
 
