@@ -4,12 +4,10 @@ const UVIndex = ({ uv }) => {
 
   function roundUV(uvData) {
     const roundedUV = Math.round(uvData.result.uv);
-    console.log("Rounded UV:", roundedUV);
     return roundedUV;
   }
 
   function getUVLevel(roundedUV) {
-    console.log("Rounded UV Level:", roundedUV);
 
     if (roundedUV <= 2) {
       return "Low";

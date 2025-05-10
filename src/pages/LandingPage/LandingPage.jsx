@@ -4,7 +4,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SkinToneSelector from "../../components/SkinToneSelector/SkinToneSelector";
 
-const API_URL = import.meta.env.VITE_LOCALHOST;
+const API_URL = import.meta.env.VITE_API_URL;
+console.log("✅ VITE_API_URL in production:", import.meta.env.VITE_API_URL);
 
 function LandingPage() {
   const { id } = useParams();
@@ -13,7 +14,7 @@ function LandingPage() {
 
   //checks if skintone is saved in local storage and directs to home if stored.
   useEffect(() => {
-    const storedSkinTone = localStorage.getItem("selectedSkinTone");
+    const storedSkinTone = sessionStorage.getItem("selectedSkinTone");
     if (storedSkinTone) {
       navigate(`/home`);
     } else {
@@ -25,7 +26,6 @@ function LandingPage() {
     try {
       const response = await axios.get(`${API_URL}/skintones/`);
       setTone(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }

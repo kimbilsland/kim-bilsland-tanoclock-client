@@ -18,6 +18,13 @@
     line-height: 20rem;
     padding: 0rem 1rem;
     resize: none;
+    align-items: top;
+
+    &--large .formfield__textfield {
+      height: 4rem;
+      resize: none;
+      vertical-align: top;
+    }
 
     &:focus {
       outline: none;
@@ -34,12 +41,5 @@
       line-height: 1.25rem;
       align-items: top;
     }
-  }
-
-  &--large .formfield__textfield {
-    height: 4rem;
-    // @include flexcolumn;
-    resize: none;
-    vertical-align: top;
   }
 }
