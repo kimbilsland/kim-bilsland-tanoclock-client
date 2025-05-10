@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import SkinToneSelector from "../../components/SkinToneSelector/SkinToneSelector";
 
 const API_URL = import.meta.env.VITE_API_URL;
-console.log("✅ VITE_API_URL in production:", import.meta.env.VITE_API_URL);
 
 function LandingPage() {
   const { id } = useParams();
